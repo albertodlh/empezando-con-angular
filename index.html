@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app>
   <head>
     <meta charset="utf-8">
     <title>Empezando con AngularJS</title>
@@ -10,10 +10,18 @@
   <body>
     <h1>Empezando con AngularJS</h1>
     <p>AngularJS <strong>añade interactividad</strong> al HTML común y corriente. No requiere de template engines adicionales.</p>
-    <p>Esta, por ejemplo, es una página HTML común y corriente.</p>
+    <p>Esta ya no es una página común y corriente. ¡AngularJS le ha dado superpoderes!</p>
     <p>{{ 23 + 19 }}</p>
     <p>{{ "¡Hola" + " mundo!" }}</p>
 
+    <h3>Lista de Avengers</h3>
+    <ul>
+      <li ng-repeat="avenger in ['Captain America', 'Iron Man', 'Thor', 'Hulk', 'Hawkeye', 'Scarlett Widow']">
+        {{ avenger }}
+      </li>
+    </ul>
+
+    <script src="scripts/vendor/angular.js"></script>
     <script src="scripts/main.js"></script>
   </body>
 </html>
