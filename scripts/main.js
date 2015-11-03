@@ -1,1 +1,1 @@
-console.log("¡Hola mundo!");
+angular.module('prueba', []);
