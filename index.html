@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="prueba">
+<html ng-app="avengers">
   <head>
     <meta charset="utf-8">
     <title>Empezando con AngularJS</title>
@@ -8,30 +8,23 @@
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
-    <h1>Controladores</h1>
-    <p></p>
+    <h1>Directivas</h1>
+
     <div ng-controller="TestCtrl as testCtrl">
+      <avenger-report
+        avengers="testCtrl.avengers">
+      </avenger-report>
 
-      <h4>Choose your avenger:</h4>
-      <ul>
-        <li ng-repeat="avenger in testCtrl.avengers">
-          <a href ng-click="testCtrl.selectAvenger($index)">
-            {{ avenger.name }}
-          </a>
-        </li>
-      </ul>
+      <h3>My Avengers:</h3>
 
-      <div class="hero-info">
-        <img ng-show="testCtrl.selectedAvenger().image" ng-src="{{ testCtrl.selectedAvenger().image }}" height="150" >
-        <p>
-          <label>Name: </label>
-          <input type="text" ng-model="testCtrl.selectedAvenger().name">
-        </p>
-        <p>
-          <label>Real Name: </label>
-          <input type="text" ng-model="testCtrl.selectedAvenger().real_name">
-        </p>
+      <div class="island">
+        <label>Filter: </label>
+        <input type="text" ng-model="filtro">
       </div>
+      <avenger-display
+        ng-repeat="avenger in testCtrl.avengers | filter:filtro"
+        avenger="avenger">
+      </avenger-display>
     </div>
 
     <script src="scripts/vendor/angular.js"></script>

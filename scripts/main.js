@@ -18,7 +18,7 @@
     {
       name: 'The Hulk',
       real_name: 'Bruce Banner',
-      image: 'http://cinergetica.com.mx/wp-content/uploads/2012/04/hulk-wallpaper-avengers.jpg'
+      image: 'http://i0.wp.com/www.cgmeetup.net/home/wp-content/uploads/2013/01/Hulk-face-13.jpg?resize=1280%2C720'
     },
     {
       name: 'Hawkeye',
@@ -32,21 +32,37 @@
     },
   ];
 
-  var app = angular.module('prueba', []);
+  angular.module('avengers', []);
 
-  app.controller('TestCtrl', [function(){
-    var selectedAvengerId = 0;
+  angular.module('avengers').controller('TestCtrl', [function(){
     this.avengers = avengers;
+  }]);
 
-    this.selectAvenger = function(inx){
-      selectedAvengerId = inx;
-    };
-
-    this.selectedAvenger = function(){
-      return this.avengers[selectedAvengerId];
+  angular.module('avengers').directive('avengerReport', [function(){
+    return {
+      restrict: 'E',
+      templateUrl: '/scripts/templates/avenger_report_template.html',
+      scope: {
+        avengers: '='
+      },
+      controller: function($scope){
+        this.selectAvenger = function(name){
+          $scope.$parent.filtro = name;
+        };
+      },
+      controllerAs: 'ctrl'
     };
   }]);
 
+  angular.module('avengers').directive('avengerDisplay', [function(){
+    return {
+      restrict: 'E',
+      templateUrl: '/scripts/templates/avenger_display_template.html',
+      scope: {
+        avenger: '='
+      }
+    };
+  }]);
 })();
 
 
