@@ -1,0 +1,19 @@
+<h3>Avenger Report:</h3>
+<table>
+  <tr>
+    <th>
+      Avenger Name
+    </th>
+    <th>
+      Real Name
+    </th>
+  </tr>
+  <tr ng-repeat="avenger in avengers">
+    <td>
+      <a href ng-click="ctrl.selectAvenger(avenger.name)">{{ avenger.name }}</a>
+    </td>
+    <td>
+      {{ avenger.real_name }}
+    </td>
+  </td>
+</table>
