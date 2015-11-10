@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="prueba">
+<html ng-app="avengers">
   <head>
     <meta charset="utf-8">
     <title>Empezando con AngularJS</title>
@@ -8,25 +8,10 @@
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
-    <h1>Directivas</h1>
-    <p></p>
+    <h1>Servicios</h1>
 
-    <div ng-controller="TestCtrl as testCtrl">
-      <avenger-report
-        avengers="testCtrl.avengers">
-      </avenger-report>
-
-      <h3>My Avengers:</h3>
-
-      <div class="island">
-        <label>Filter: </label>
-        <input type="text" ng-model="filtro">
-      </div>
-      <avenger-display
-        ng-repeat="avenger in testCtrl.avengers | filter:filtro"
-        avenger="avenger">
-      </avenger-display>
-    </div>
+    <avenger-report></avenger-report>
+    <avenger-display></avenger-display>
 
     <script src="scripts/vendor/angular.js"></script>
     <script src="scripts/main.js"></script>
