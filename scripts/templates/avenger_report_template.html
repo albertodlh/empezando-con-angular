@@ -7,13 +7,18 @@
     <th>
       Real Name
     </th>
+    <th>
+    </th>
   </tr>
-  <tr ng-repeat="avenger in avengers">
+  <tr ng-repeat="avenger in reportCtrl.avengers">
     <td>
-      <a href ng-click="ctrl.selectAvenger(avenger.name)">{{ avenger.name }}</a>
+      <a href ng-click="reportCtrl.selectAvenger(avenger.name)">{{ avenger.name }}</a>
     </td>
     <td>
       {{ avenger.real_name }}
+    </td>
+    <td>
+      <a href ng-click="reportCtrl.removeAvenger($index)">remove</a>
     </td>
   </td>
 </table>
