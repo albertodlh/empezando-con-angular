@@ -110,6 +110,11 @@ a:hover{
   width: 280px;
 }
 
+.new-hero{
+  background-color: #494949;
+  border-color: #626262;
+}
+
 .hero-info input[type="text"]{
   width: 100%;
 }

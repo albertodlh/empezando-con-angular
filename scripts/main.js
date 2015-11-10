@@ -40,6 +40,9 @@
       },
       removeAvenger: function(inx){
         avengers.splice(inx, 1);
+      },
+      createAvenger: function(newAvenger){
+        avengers.push(newAvenger);
       }
     };
   }]);
@@ -73,6 +76,30 @@
         };
       },
       controllerAs: 'displayCtrl'
+    };
+  }]);
+
+  angular.module('avengers').directive('avengerCreate', ['avengerFactory', function(avengerFactory){
+    return {
+      restrict: 'E',
+      templateUrl: '/scripts/templates/avenger_create_template.html',
+      controller: function($scope){
+        var _this = this;
+        this.newAvenger = {
+          name: '',
+          real_name: '',
+          image: ''
+        };
+        this.createAvenger = function(){
+          avengerFactory.createAvenger(_this.newAvenger);
+          this.newAvenger = {
+            name: '',
+            real_name: '',
+            image: ''
+          };
+        };
+      },
+      controllerAs: 'createCtrl'
     };
   }]);
 })();
