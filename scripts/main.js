@@ -47,22 +47,19 @@
     };
   }]);
 
-  angular.module('avengers').directive('avengerReport', ['avengerFactory', function(avengerFactory){
-    return {
-      restrict: 'E',
-      templateUrl: '/scripts/templates/avenger_report_template.html',
-      controller: function($scope){
-        this.avengers = avengerFactory.getAvengers();
-        this.selectAvenger = function(name){
-          $scope.displayCtrl.avengerFilter = name;
-        };
-        this.removeAvenger = function(inx){
-          avengerFactory.removeAvenger(inx);
-        };
-      },
-      controllerAs: 'reportCtrl'
-    };
-  }]);
+  angular.module('avengers').component('avengerReport', {
+    templateUrl: '/scripts/templates/avenger_report_template.html',
+    controller: ['$scope', 'avengerFactory', function($scope, avengerFactory){
+      this.avengers = avengerFactory.getAvengers();
+      this.selectAvenger = function(name){
+        $scope.displayCtrl.avengerFilter = name;
+      };
+      this.removeAvenger = function(inx){
+        avengerFactory.removeAvenger(inx);
+      };
+    }],
+    controllerAs: 'reportCtrl'
+  });
 
   angular.module('avengers').directive('avengerDisplay', ['avengerFactory', function(avengerFactory){
     return {
